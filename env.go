@@ -28,7 +28,7 @@ func InitEnvVars(configuration interface{}) {
 			t := reflect.TypeOf(configuration)
 			for i := 0; i < t.NumField(); i++ {
 				key := t.Field(i).Name
-				log.Println(key, ":", os.Getenv(key))
+				log.Println(key)
 			}
 
 		} else {
@@ -39,7 +39,7 @@ func InitEnvVars(configuration interface{}) {
 			aMap, _ := InterfaceMap(configuration)
 			for key, val := range aMap {
 				os.Setenv(key, val)
-				log.Println(key, ":", val)
+				log.Println(key)
 			}
 
 		}
